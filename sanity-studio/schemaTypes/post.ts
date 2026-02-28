@@ -1,15 +1,17 @@
-export default {
+import { defineType, defineField } from 'sanity'
+
+export default defineType({
   name: 'post',
   title: 'Blog Post',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -17,54 +19,42 @@ export default {
         source: 'title',
         maxLength: 96,
       },
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
       rows: 3,
-      description: 'A short summary of the post for the grid view.',
-      validation: (Rule: any) => Rule.required().max(200),
-    },
-    {
+      validation: (Rule) => Rule.required().max(200),
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Main Image',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
+      options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'category',
       title: 'Category',
       type: 'string',
       options: {
-        list: [
-          { title: 'Lifestyle', value: 'Lifestyle' },
-          { title: 'Fashion', value: 'Fashion' },
-          { title: 'Travel', value: 'Travel' },
-          { title: 'Wellness', value: 'Wellness' },
-        ],
+        list: ['Lifestyle', 'Fashion', 'Travel', 'Wellness'],
       },
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'date',
       title: 'Published Date',
       type: 'date',
-      options: {
-        dateFormat: 'MMM DD, YYYY',
-      },
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'content',
       title: 'Content',
       type: 'array',
       of: [{ type: 'block' }, { type: 'image' }],
-      validation: (Rule: any) => Rule.required(),
-    },
+    }),
   ],
-}
+})

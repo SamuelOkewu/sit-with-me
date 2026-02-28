@@ -1,16 +1,15 @@
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemaTypes'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
+import { schemaTypes } from './schemaTypes' // Ensure this path is correct!
 
 export default defineConfig({
   name: 'default',
-  title: 'Sit-with-me',
+  title: 'Sit With Me Studio',
 
-  projectId: 'x3jf9fcg',
+  projectId: '9cjzddfw', // Double check this ID matches your dashboard
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [deskTool()],
 
   schema: {
     types: schemaTypes,
