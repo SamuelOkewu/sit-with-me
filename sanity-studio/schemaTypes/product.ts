@@ -29,7 +29,11 @@ export default defineType({
       title: 'Category',
       type: 'string',
       options: {
-        list: ['Accessories', 'Apparel', 'Home'],
+        list: [
+          { title: 'Accessories', value: 'accessories' },
+          { title: 'Apparel', value: 'apparel' },
+          { title: 'Home', value: 'home' },
+        ],
       },
       validation: (Rule) => Rule.required(),
     }),

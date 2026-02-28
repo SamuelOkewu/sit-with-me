@@ -1,10 +1,4 @@
 import post from './post'
-
-const product = {
-  name: 'product',
-  title: 'Product',
-  type: 'document',
-  fields: []
-}
+import product from './product'
 
 export const schemaTypes = [post, product]
