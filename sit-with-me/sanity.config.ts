@@ -1,28 +1,22 @@
-'use client'
-
-/**
- * This configuration is used to for the Sanity Studio that’s mounted on the `\app\TYPSI\[[...tool]]\page.tsx` route
- */
-
-import {visionTool} from '@sanity/vision'
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
-
-// Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import {apiVersion, dataset, projectId} from './sanity/env'
-import {schema} from './sanity/schemaTypes'
-import {structure} from './sanity/structure'
+import { defineConfig } from "sanity";
+import { deskTool } from "sanity/desk";
+import { visionTool } from "@sanity/vision";
+import { schemaTypes } from "./schemas";
 
 export default defineConfig({
-  basePath: '/TYPSI',
-  projectId,
-  dataset,
-  // Add and edit the content schema in the './sanity/schemaTypes' folder
-  schema,
+  name: "default",
+  title: "Client Blog CMS",
+
+  // 🔴 REPLACE THIS with your actual Project ID from Step 7
+  projectId: "9cjzddfw",
+  dataset: "production",
+
   plugins: [
-    structureTool({structure}),
-    // Vision is for querying with GROQ from inside the Studio
-    // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({defaultApiVersion: apiVersion}),
+    deskTool(),
+    visionTool(),
   ],
-})
+
+  schema: {
+    types: schemaTypes,
+  },
+});
