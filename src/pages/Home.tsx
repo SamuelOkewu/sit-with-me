@@ -6,6 +6,30 @@ import Carousel from '../components/Carousel';
 import { getBlogPosts, getProducts } from '../services/contentService';
 import { BlogPost, Product } from '../types';
 
+const HERO_ITEMS = [
+  {
+    image: 'https://images.unsplash.com/photo-1495121605193-b116b5b9c5fe?auto=format&fit=crop&q=80&w=2000',
+    subtitle: 'Welcome to the Journal',
+    title: 'SIT WITH ME',
+    linkText: 'Explore the Stories',
+    linkPath: '/blog'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=2000',
+    subtitle: 'Fashion & Style',
+    title: 'CURATED ELEGANCE',
+    linkText: 'View Lookbook',
+    linkPath: '/lookbook'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=2000',
+    subtitle: 'Wellness & Living',
+    title: 'INTENTIONAL DAYS',
+    linkText: 'Read Wellness',
+    linkPath: '/blog?category=Wellness'
+  }
+];
+
 export default function Home() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
@@ -14,6 +38,51 @@ export default function Home() {
     getBlogPosts().then(setPosts);
     getProducts().then(setProducts);
   }, []);
+
+  const renderHeroItem = (item: typeof HERO_ITEMS[0]) => (
+    <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0">
+        <img 
+          src={item.image} 
+          alt={item.title} 
+          className="w-full h-full object-cover"
+          referrerPolicy="no-referrer"
+        />
+        <div className="absolute inset-0 bg-black/30" />
+      </div>
+      
+      <div className="relative z-10 text-center px-6">
+        <motion.span 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-xs uppercase tracking-[0.5em] mb-6 block text-white/80"
+        >
+          {item.subtitle}
+        </motion.span>
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="text-6xl md:text-9xl font-serif leading-[0.85] mb-8 text-white"
+        >
+          {item.title.split(' ').map((word, i) => (
+            <span key={i} className="block">{word}</span>
+          ))}
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+        >
+          <Link to={item.linkPath} className="text-xs uppercase tracking-widest border-b border-white pb-1 hover:opacity-50 transition-opacity text-white">
+            {item.linkText}
+          </Link>
+        </motion.div>
+      </div>
+    </div>
+  );
+
   const renderBlogPost = (post: BlogPost) => {
     if (!post) return null;
     return (
@@ -69,50 +138,14 @@ export default function Home() {
 
   return (
     <div className="pt-20">
-      {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-        <motion.div 
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1495121605193-b116b5b9c5fe?auto=format&fit=crop&q=80&w=2000" 
-            alt="Hero" 
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-paper/10" />
-        </motion.div>
-        
-        <div className="relative z-10 text-center px-6">
-          <motion.span 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="text-xs uppercase tracking-[0.5em] mb-6 block"
-          >
-            Welcome to the Journal
-          </motion.span>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="text-6xl md:text-9xl font-serif leading-[0.85] mb-8"
-          >
-            SIT WITH <br /> ME
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-          >
-            <Link to="/blog" className="text-xs uppercase tracking-widest border-b border-ink pb-1 hover:opacity-50 transition-opacity">
-              Explore the Stories
-            </Link>
-          </motion.div>
-        </div>
+      {/* Hero Section Carousel */}
+      <section className="relative h-[90vh] overflow-hidden">
+        <Carousel 
+          items={HERO_ITEMS} 
+          renderItem={renderHeroItem} 
+          autoPlayInterval={6000}
+          className="h-full"
+        />
       </section>
 
       {/* Latest Blog Posts Carousel */}

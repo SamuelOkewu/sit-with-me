@@ -52,3 +52,26 @@ export async function getProducts(): Promise<Product[]> {
     return PRODUCTS;
   }
 }
+
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | undefined> {
+  if (!IS_SANITY_CONFIGURED) {
+    return BLOG_POSTS.find(post => post.slug === slug);
+  }
+
+  try {
+    const query = `*[_type == "post" && slug.current == $slug][0] {
+      "id": _id,
+      title,
+      excerpt,
+      content,
+      date,
+      category,
+      "image": mainImage.asset->url,
+      "slug": slug.current
+    }`;
+    const data = await sanityClient.fetch(query, { slug });
+    return data || BLOG_POSTS.find(post => post.slug === slug);
+  } catch (error) {
+    return BLOG_POSTS.find(post => post.slug === slug);
+  }
+}
