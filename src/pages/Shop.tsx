@@ -42,7 +42,7 @@ export default function Shop() {
                   <span className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-2 block">{product.category}</span>
                   <h2 className="text-xl font-serif">{product.name}</h2>
                 </div>
-                <p className="text-lg font-light">${product.price}</p>
+                <p className="text-lg font-light">₦{product.price}</p>
               </div>
             </div>
           ))}
