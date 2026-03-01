@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, Twitter, Facebook, Share2 } from 'lucide-react';
+import { PortableText } from '@portabletext/react';
 import { getBlogPostBySlug } from '../services/contentService';
 import { BlogPost } from '../types';
 
@@ -111,23 +112,11 @@ export default function BlogPostDetail() {
             {post.excerpt}
           </div>
           <div className="text-ink/70 leading-relaxed space-y-8">
-            {/* In a real app, this would be rendered from Portable Text if using Sanity */}
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <h2 className="text-3xl font-serif text-ink mt-12 mb-6">The Essence of Style</h2>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-            </p>
-            <blockquote className="border-l-2 border-ink pl-8 italic text-2xl font-serif my-12 text-ink/90">
-              "Style is a way to say who you are without having to speak."
-            </blockquote>
-            <p>
-              Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
-            </p>
+            {Array.isArray(post.content) ? (
+              <PortableText value={post.content} />
+            ) : (
+              <p>{post.content}</p>
+            )}
           </div>
         </article>
 
