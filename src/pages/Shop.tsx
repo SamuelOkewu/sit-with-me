@@ -34,7 +34,7 @@ export default function Shop() {
                   rel="noopener noreferrer"
                   className="absolute bottom-6 left-6 right-6 bg-white py-4 text-[10px] uppercase tracking-[0.2em] text-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-ink hover:text-white"
                 >
-                  Add to Cart
+                  View
                 </a>
               </div>
               <div className="flex justify-between items-start">
