@@ -41,7 +41,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-ink/5 pt-10 flex flex-col md:row justify-between items-center text-[10px] uppercase tracking-widest text-ink/40">
-          <p>© 2024 Sit With Me. All rights reserved.</p>
+          <p>© 2026 Sit With Me. All rights reserved.</p>
           <div className="flex space-x-8 mt-4 md:mt-0">
             <Link to="/privacy" className="hover:text-ink transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-ink transition-colors">Terms of Service</Link>

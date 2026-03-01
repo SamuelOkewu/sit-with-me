@@ -122,7 +122,7 @@ export default function Home() {
         <div className="text-left">
           <span className="text-xs uppercase tracking-[0.2em] text-ink/40 mb-4 block">{product.category}</span>
           <h3 className="text-3xl font-serif mb-4">{product.name}</h3>
-          <p className="text-2xl font-light mb-8">${product.price}</p>
+          <p className="text-2xl font-light mb-8">₦{product.price}</p>
           <a 
             href={product.stripeUrl}
             target="_blank"
