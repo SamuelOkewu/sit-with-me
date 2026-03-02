@@ -45,7 +45,7 @@ export default function About() {
             
             <div>
               <h3 className="text-xs uppercase tracking-[0.2em] font-semibold mb-4 text-ink/40">Contact</h3>
-              <p className="text-sm">hello@sitwithme.com</p>
+              <p className="text-sm">graceokeafor7@gmail.com</p>
             </div>
           </div>
         </div>

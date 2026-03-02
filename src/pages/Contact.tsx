@@ -24,7 +24,7 @@ export default function Contact() {
             <input 
               type="email" 
               className="w-full bg-transparent border-b border-ink/10 py-3 focus:outline-none focus:border-ink transition-colors"
-              placeholder="hello@example.com"
+              placeholder="graceokeafor7@gmail.com"
             />
           </div>
 
@@ -45,7 +45,7 @@ export default function Contact() {
         <div className="mt-20 pt-10 border-t border-ink/5 text-center">
           <p className="text-xs uppercase tracking-[0.2em] text-ink/40 mb-6">Or reach out directly via</p>
           <a 
-            href="https://wa.me/yournumber" 
+            href="https://wa.me/2348062756974" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-3 bg-emerald-500 text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-emerald-600 transition-colors"

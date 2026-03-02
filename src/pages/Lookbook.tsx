@@ -127,12 +127,12 @@ export default function Lookbook() {
         <div className="mt-40 text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-ink/40 mb-8">Follow our journey</p>
           <a 
-            href="https://instagram.com" 
+            href="https://www.instagram.com/thegraceokeafor" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-3xl font-serif hover:opacity-50 transition-opacity"
           >
-            @sitwithme_journal
+            @thegraceokeafor
           </a>
         </div>
       </div>
