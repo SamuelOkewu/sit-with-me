@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Home Page -->
+  <url>
+    <loc>https://sitwithme.com/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Blog / Journal -->
+  <url>
+    <loc>https://sitwithme.com/blog</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Shop -->
+  <url>
+    <loc>https://sitwithme.com/shop</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Lookbook -->
+  <url>
+    <loc>https://sitwithme.com/lookbook</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://sitwithme.com/about</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://sitwithme.com/contact</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!--
+    NOTE: Add individual blog post URLs here as you publish them.
+    Example:
+    <url>
+      <loc>https://sitwithme.com/blog/your-post-slug</loc>
+      <lastmod>2025-01-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+      <image:image>
+        <image:loc>https://sitwithme.com/images/your-post-image.jpg</image:loc>
+        <image:title>Your Post Title</image:title>
+      </image:image>
+    </url>
+  -->
+
+</urlset>

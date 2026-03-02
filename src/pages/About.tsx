@@ -1,4 +1,27 @@
+import { useSEO } from '../hooks/useSEO';
+
 export default function About() {
+  useSEO({
+    title: 'Our Story – Sit With Me | Intentional Living & Style',
+    description: 'Learn the story behind Sit With Me – a digital sanctuary born from a desire to slow down, celebrate style, and live with intention. Discover our values and philosophy.',
+    canonical: '/about',
+    keywords: 'about sit with me, intentional living, slow fashion, quiet luxury lifestyle, our story',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'AboutPage',
+      name: 'Our Story – Sit With Me',
+      url: 'https://sitwithme.com/about',
+      description: 'The story behind Sit With Me – a digital sanctuary for intentional living.',
+      mainEntity: {
+        '@type': 'Organization',
+        name: 'Sit With Me',
+        foundingDate: '2023',
+        email: 'graceokeafor7@gmail.com',
+        description: 'A lifestyle journal and curated shop for intentional living, style, and wellness.'
+      }
+    }
+  });
+
   return (
     <div className="pt-40 pb-32">
       <div className="max-w-4xl mx-auto px-6">
@@ -10,7 +33,7 @@ export default function About() {
         <div className="aspect-video overflow-hidden rounded-sm mb-20">
           <img 
             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=2000" 
-            alt="Founder" 
+            alt="Founder of Sit With Me – lifestyle journal and curated shop"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
@@ -45,7 +68,11 @@ export default function About() {
             
             <div>
               <h3 className="text-xs uppercase tracking-[0.2em] font-semibold mb-4 text-ink/40">Contact</h3>
-              <p className="text-sm">graceokeafor7@gmail.com</p>
+              <p className="text-sm">
+                <a href="mailto:graceokeafor7@gmail.com" className="hover:opacity-60 transition-opacity">
+                  graceokeafor7@gmail.com
+                </a>
+              </p>
             </div>
           </div>
         </div>

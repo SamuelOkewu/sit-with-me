@@ -3,11 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sit With Me</title>
+
+    <!-- ✅ PRIMARY SEO TAGS -->
+    <title>Sit With Me – Lifestyle, Fashion & Intentional Living</title>
+    <meta name="description" content="Sit With Me is a lifestyle journal and curated shop celebrating intentional living, effortless fashion, travel, and wellness. Explore stories, style, and slow living." />
+    <meta name="keywords" content="lifestyle blog, fashion journal, intentional living, slow fashion, wellness, travel, curated shop, quiet luxury, sit with me" />
+    <meta name="author" content="Sit With Me" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://sitwithme.com/" />
+
+    <!-- ✅ OPEN GRAPH (Facebook, LinkedIn, WhatsApp previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sit With Me" />
+    <meta property="og:title" content="Sit With Me – Lifestyle, Fashion & Intentional Living" />
+    <meta property="og:description" content="A digital sanctuary for intentional living, effortless style, travel, and wellness. Explore the journal and curated shop." />
+    <meta property="og:image" content="https://sitwithme.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://sitwithme.com/" />
+
+    <!-- ✅ TWITTER / X CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sit With Me – Lifestyle, Fashion & Intentional Living" />
+    <meta name="twitter:description" content="A digital sanctuary for intentional living, effortless style, travel, and wellness." />
+    <meta name="twitter:image" content="https://sitwithme.com/og-image.jpg" />
+
+    <!-- ✅ FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- ✅ PERFORMANCE: Preconnect to external image sources -->
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+    <!-- ✅ STRUCTURED DATA: Website Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Sit With Me",
+      "url": "https://sitwithme.com",
+      "description": "A lifestyle journal and curated shop celebrating intentional living, fashion, travel, and wellness.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://sitwithme.com/blog?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- ✅ STRUCTURED DATA: Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Sit With Me",
+      "url": "https://sitwithme.com",
+      "logo": "https://sitwithme.com/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "graceokeafor7@gmail.com"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

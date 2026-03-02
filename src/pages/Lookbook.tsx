@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { useSEO } from '../hooks/useSEO';
 
 const LOOKBOOK_IMAGES = [
   {
@@ -46,6 +47,25 @@ const LOOKBOOK_IMAGES = [
 ];
 
 export default function Lookbook() {
+  useSEO({
+    title: 'Lookbook – Curated Fashion Styles & Visual Journey | Sit With Me',
+    description: 'Explore the Sit With Me Lookbook – a curated visual journey of styles, outfits, and fashion moments that define quiet luxury and effortless elegance.',
+    canonical: '/lookbook',
+    ogImage: LOOKBOOK_IMAGES[0].url,
+    keywords: 'fashion lookbook, style inspiration, quiet luxury fashion, effortless elegance outfits, Nigeria fashion blog',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Sit With Me Lookbook',
+      url: 'https://sitwithme.com/lookbook',
+      description: 'A curated visual journey of styles and fashion moments.',
+      publisher: {
+        '@type': 'Organization',
+        name: 'Sit With Me'
+      }
+    }
+  });
+
   return (
     <div className="pt-40 pb-32">
       <div className="max-w-7xl mx-auto px-6">
@@ -77,7 +97,7 @@ export default function Lookbook() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
           {LOOKBOOK_IMAGES.map((item, idx) => (
-            <motion.div 
+            <motion.article
               key={idx}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -88,18 +108,20 @@ export default function Lookbook() {
               <div className="aspect-[3/4] overflow-hidden rounded-sm group relative">
                 <img 
                   src={item.url} 
-                  alt={item.title} 
+                  alt={`${item.title} – ${item.caption} | Sit With Me Lookbook`}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  width="500"
+                  height="667"
                 />
                 <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/10 transition-colors duration-500" />
-                
-                {/* Shop the Look Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <a 
                     href={item.shopUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Shop the ${item.title} look`}
                     className="bg-white text-ink px-8 py-3 text-[10px] uppercase tracking-[0.2em] hover:bg-ink hover:text-white transition-colors"
                   >
                     Shop the Look
@@ -108,19 +130,20 @@ export default function Lookbook() {
               </div>
               <div className="flex justify-between items-end">
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-serif">{item.title}</h3>
+                  <h2 className="text-2xl font-serif">{item.title}</h2>
                   <p className="text-sm text-ink/60 italic">{item.caption}</p>
                 </div>
                 <a 
                   href={item.shopUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Shop ${item.title}`}
                   className="text-[10px] uppercase tracking-widest border-b border-ink/20 pb-1 hover:border-ink transition-colors"
                 >
                   Shop
                 </a>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
@@ -130,6 +153,7 @@ export default function Lookbook() {
             href="https://www.instagram.com/thegraceokeafor" 
             target="_blank" 
             rel="noopener noreferrer"
+            aria-label="Follow @thegraceokeafor on Instagram"
             className="text-3xl font-serif hover:opacity-50 transition-opacity"
           >
             @thegraceokeafor

@@ -1,0 +1,10 @@
+# Sit With Me – robots.txt
+# Allows all search engine crawlers
+
+User-agent: *
+Allow: /
+
+# Block Sanity Studio from being indexed
+Disallow: /studio/
+
+Sitemap: https://sitwithme.com/sitemap.xml

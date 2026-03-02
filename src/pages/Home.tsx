@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import Carousel from '../components/Carousel';
 import { getBlogPosts, getProducts } from '../services/contentService';
 import { BlogPost, Product } from '../types';
+import { useSEO } from '../hooks/useSEO';
 
 const HERO_ITEMS = [
   {
@@ -34,6 +35,21 @@ export default function Home() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
 
+  useSEO({
+    title: 'Sit With Me – Lifestyle, Fashion & Intentional Living',
+    description: 'Sit With Me is a lifestyle journal and curated shop celebrating intentional living, effortless fashion, travel, and wellness. Explore stories, style, and slow living.',
+    canonical: '/',
+    keywords: 'lifestyle blog, fashion journal, intentional living, slow fashion, wellness, quiet luxury',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Sit With Me – Home',
+      url: 'https://sitwithme.com/',
+      description: 'A lifestyle journal and curated shop celebrating intentional living, effortless fashion, and wellness.',
+      isPartOf: { '@type': 'WebSite', name: 'Sit With Me', url: 'https://sitwithme.com' }
+    }
+  });
+
   useEffect(() => {
     getBlogPosts().then(setPosts);
     getProducts().then(setProducts);
@@ -44,7 +60,7 @@ export default function Home() {
       <div className="absolute inset-0">
         <img 
           src={item.image} 
-          alt={item.title} 
+          alt={`Sit With Me – ${item.subtitle}`}
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
@@ -89,9 +105,10 @@ export default function Home() {
       <Link to={`/blog/${post.slug}`} className="relative w-full h-[600px] flex items-center justify-center group overflow-hidden">
         <img 
           src={post.image} 
-          alt={post.title} 
+          alt={`${post.title} – ${post.category} article on Sit With Me`}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           referrerPolicy="no-referrer"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
         <div className="relative z-10 text-center text-white px-6 max-w-2xl">
@@ -114,9 +131,10 @@ export default function Home() {
         <div className="aspect-[4/5] overflow-hidden rounded-sm">
           <img 
             src={product.image} 
-            alt={product.name} 
+            alt={`${product.name} – ${product.category} available in the Sit With Me shop`}
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
+            loading="lazy"
           />
         </div>
         <div className="text-left">
@@ -139,7 +157,7 @@ export default function Home() {
   return (
     <div className="pt-20">
       {/* Hero Section Carousel */}
-      <section className="relative h-[90vh] overflow-hidden">
+      <section aria-label="Featured stories" className="relative h-[90vh] overflow-hidden">
         <Carousel 
           items={HERO_ITEMS} 
           renderItem={renderHeroItem} 
@@ -149,7 +167,7 @@ export default function Home() {
       </section>
 
       {/* Latest Blog Posts Carousel */}
-      <section className="py-24 bg-white">
+      <section aria-label="Latest journal posts" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 mb-12 flex justify-between items-end">
           <div>
             <h2 className="text-4xl font-serif mb-2">Latest from the Journal</h2>
@@ -167,7 +185,7 @@ export default function Home() {
       </section>
 
       {/* Shop Teaser Carousel */}
-      <section className="py-32 bg-sand/20">
+      <section aria-label="Featured shop items" className="py-32 bg-sand/20">
         <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
           <span className="text-[10px] uppercase tracking-[0.4em] text-ink/40 mb-4 block">Curated Collection</span>
           <h2 className="text-5xl font-serif mb-4">The Shop</h2>
@@ -186,15 +204,16 @@ export default function Home() {
       </section>
 
       {/* About Snippet */}
-      <section className="py-32 max-w-5xl mx-auto px-6">
+      <section aria-label="About Sit With Me" className="py-32 max-w-5xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div className="relative">
             <div className="aspect-[3/4] overflow-hidden rounded-sm">
               <img 
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1000" 
-                alt="About" 
+                alt="Sit With Me founder – a space for quiet, intentional moments"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
             </div>
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-sand -z-10 rounded-sm" />
