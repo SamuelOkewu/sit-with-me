@@ -102,22 +102,37 @@ export default function Home() {
   const renderBlogPost = (post: BlogPost) => {
     if (!post) return null;
     return (
-      <Link to={`/blog/${post.slug}`} className="relative w-full h-[600px] flex items-center justify-center group overflow-hidden">
-        <img 
-          src={post.image} 
+      <Link
+        to={`/blog/${post.slug}`}
+        className="relative group overflow-hidden rounded-sm"
+        style={{ width: '100%', maxWidth: '480px', height: '600px', display: 'block' }}
+      >
+        {/* Portrait Image */}
+        <img
+          src={post.image}
           alt={`${post.title} – ${post.category} article on Sit With Me`}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           referrerPolicy="no-referrer"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-        <div className="relative z-10 text-center text-white px-6 max-w-2xl">
-          <span className="text-xs uppercase tracking-[0.3em] mb-4 block opacity-80">{post.category}</span>
-          <h2 className="text-4xl md:text-6xl font-serif mb-6 leading-tight">{post.title}</h2>
-          <p className="text-sm md:text-base opacity-90 mb-8 line-clamp-2">{post.excerpt}</p>
-          <span className="inline-flex items-center space-x-2 text-xs uppercase tracking-widest border-b border-white pb-1 group-hover:opacity-70 transition-opacity">
+
+        {/* Gradient overlay — stronger at bottom for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent group-hover:from-black/85 transition-all duration-500" />
+
+        {/* Text — anchored to bottom of card */}
+        <div className="absolute bottom-0 left-0 right-0 z-10 p-8 text-white">
+          <span className="text-[10px] uppercase tracking-[0.35em] mb-3 block opacity-70">
+            {post.category}
+          </span>
+          <h2 className="text-2xl font-serif mb-3 leading-snug line-clamp-3">
+            {post.title}
+          </h2>
+          <p className="text-xs opacity-75 mb-5 leading-relaxed line-clamp-2">
+            {post.excerpt}
+          </p>
+          <span className="inline-flex items-center space-x-2 text-[10px] uppercase tracking-widest border-b border-white/60 pb-1 group-hover:border-white transition-colors opacity-80 group-hover:opacity-100">
             <span>Read Story</span>
-            <ArrowRight size={14} />
+            <ArrowRight size={12} />
           </span>
         </div>
       </Link>
@@ -177,10 +192,11 @@ export default function Home() {
             View All
           </Link>
         </div>
+        {/* Height accounts for 600px portrait card + nav dots */}
         <Carousel 
           items={posts} 
           renderItem={renderBlogPost} 
-          className="h-[600px]"
+          className="h-[660px]"
         />
       </section>
 
