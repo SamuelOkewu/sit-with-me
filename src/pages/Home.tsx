@@ -9,14 +9,14 @@ import { useSEO } from '../hooks/useSEO';
 
 const HERO_ITEMS = [
   {
-    image: '/1.jpg?auto=format&fit=crop&q=70&w=50000',
+    image: '/1.webp?auto=format&fit=crop&q=70&w=50000',
     subtitle: 'Welcome to the Journal',
     title: 'SIT WITH ME',
     linkText: 'Explore the Stories',
     linkPath: '/blog'
   },
   {
-    image: '/4.jpg?auto=format&fit=crop&q=70&w=50000',
+    image: '/4.webp?auto=format&fit=crop&q=70&w=50000',
     subtitle: 'Fashion & Style',
     title: 'CURATED ELEGANCE',
     linkText: 'View Lookbook',
@@ -225,7 +225,7 @@ export default function Home() {
           <div className="relative">
             <div className="aspect-[3/4] overflow-hidden rounded-sm">
               <img 
-                src="/3.jpg?auto=format&fit=crop&q=70&w=1000" 
+                src="/3.webp?auto=format&fit=crop&q=70&w=1000" 
                 alt="Sit With Me founder – a space for quiet, intentional moments"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"

@@ -32,7 +32,7 @@ export default function About() {
 
         <div className="aspect-video overflow-hidden rounded-sm mb-20">
           <img 
-            src="/2.jpg?auto=format&fit=crop&q=70&w=2000" 
+            src="/2.webp?auto=format&fit=crop&q=70&w=2000" 
             alt="Founder of Sit With Me – lifestyle journal and curated shop"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
