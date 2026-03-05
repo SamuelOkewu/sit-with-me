@@ -4,7 +4,6 @@
 @theme {
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Inter", sans-serif;
-  
   --color-paper: #f5f2ed;
   --color-ink: #1a1a1a;
   --color-sand: #e4e3e0;
@@ -14,21 +13,35 @@
   body {
     @apply bg-paper text-ink font-sans antialiased;
   }
-  
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
   }
+
+  /* Dark mode — activated by .dark on <html> */
+  .dark body {
+    background-color: #111110;
+    color: #f5f2ed;
+  }
+  .dark nav {
+    background-color: rgba(17,17,16,0.85) !important;
+    border-color: rgba(245,242,237,0.06) !important;
+  }
+  .dark footer {
+    background-color: rgba(245,242,237,0.04) !important;
+    border-color: rgba(245,242,237,0.06) !important;
+  }
 }
 
-.perspective-1000 {
-  perspective: 1000px;
+/* Slide-up animation for mobile bottom sheet */
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+.animate-slideUp {
+  animation: slideUp 0.3s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
+.perspective-1000 { perspective: 1000px; }
 
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }

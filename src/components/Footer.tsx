@@ -33,7 +33,7 @@ export default function Footer() {
               <a href="https://wa.me/2348062756974" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity" title="WhatsApp">
                 <MessageCircle size={20} />
               </a>
-              <a href="https://www.youtube.com/@SpiritWords" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity" title="YouTube">
+              <a href="https://www.youtube.com/@SpiritWords." target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity" title="YouTube">
                 <Youtube size={20} />
               </a>
               <a href="https://www.instagram.com/thegraceokeafor" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity" title="Main Instagram">

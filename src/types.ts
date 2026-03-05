@@ -6,6 +6,10 @@ export interface BlogPost {
   date: string;
   category: string;
   image: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  /** Low-quality image placeholder (base64) from Sanity for blur-up effect. */
+  lqip?: string;
   slug: string;
 }
 
@@ -14,6 +18,8 @@ export interface Product {
   name: string;
   price: number;
   image: string;
+  /** Optional short description shown in quick-view modal. */
+  description?: string;
   stripeUrl: string;
   category: string;
 }
